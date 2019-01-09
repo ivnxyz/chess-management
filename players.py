@@ -7,25 +7,29 @@ import json
 
 # Esta función importa la lista de jugadores
 def import_players():
-    with open('players_data.csv', 'r') as players_file:
-        # Crear lector csv
-        reader = csv.reader(players_file)
+    try: 
+        with open('players_data.csv', 'r') as players_file:
+            # Crear lector csv
+            reader = csv.reader(players_file)
 
-        # Lista de jugadores
-        players = []
+            # Lista de jugadores
+            players = []
 
-        # Iterar por las filas
-        for index, row in enumerate(reader):
-            # Ignorar la primera fila (header)
-            if index == 0:
-                continue
-            else:
-                # Eliminar espacios en blanco y mejorar formato
-                name = row[1].strip(' ').title()
-                players.append(name)
+            # Iterar por las filas
+            for index, row in enumerate(reader):
+                # Ignorar la primera fila (header)
+                if index == 0:
+                    continue
+                else:
+                    # Eliminar espacios en blanco y mejorar formato
+                    name = row[1].strip(' ').title()
+                    players.append(name)
 
-        # Regresar lista de jugadores
-        return players
+            # Regresar lista de jugadores
+            return players
+    except:
+        print("Falta el archivo players_data.csv") 
+        return []
 
 # Esta función guarda los datos de los jugadores importados
 def save_players_data(players):

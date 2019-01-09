@@ -17,9 +17,9 @@ def get_chess_file_data():
 # Empezar una nueva partida usando el id de cada usuario
 def start_new_match(player_one_id, player_two_id, game_id):
     # Obtener jugadores
-    player_one = 'Iván Martínez' # TODO: Obtener jugador
-    player_two = 'Alejandro Pineda' # TODO: Obtener jugador
-
+    player_one = get_player_data(player_one_id)
+    player_two = get_player_data(player_two_id)
+    
     # Asignar colores de manera aleatoria
     player_one_color = random.choice(COLORS)
     player_two_color = ''
